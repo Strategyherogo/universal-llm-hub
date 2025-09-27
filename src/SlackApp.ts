@@ -145,7 +145,7 @@ export class SlackApp {
     this.app.event('message', async ({ event, client, say }) => {
       try {
         // Skip bot messages and messages without text
-        if (event.subtype === 'bot_message' || !event.text) return;
+        if (event.subtype === 'bot_message' || !('text' in event) || !event.text) return;
 
         const isDirectMessage = event.channel_type === 'im';
         const isMention = event.text.includes(`<@${process.env.SLACK_BOT_USER_ID}>`);

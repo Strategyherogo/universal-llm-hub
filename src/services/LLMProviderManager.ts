@@ -287,10 +287,19 @@ export class LLMProviderManager {
       stream: request.options.stream || false
     });
 
-    return {
-      content: completion.choices[0]?.message?.content || '',
-      usage: completion.usage
-    };
+    // Handle streaming vs non-streaming responses
+    if ('choices' in completion && completion.choices) {
+      return {
+        content: completion.choices[0]?.message?.content || '',
+        usage: completion.usage
+      };
+    } else {
+      // Handle streaming response - not implemented for now
+      return {
+        content: '',
+        usage: undefined
+      };
+    }
   }
 
   private async processAnthropicRequest(client: Anthropic, request: LLMRequest, model: string) {
@@ -325,10 +334,19 @@ export class LLMProviderManager {
       stream: request.options.stream || false
     });
 
-    return {
-      content: completion.choices[0]?.message?.content || '',
-      usage: completion.usage
-    };
+    // Handle streaming vs non-streaming responses
+    if ('choices' in completion && completion.choices) {
+      return {
+        content: completion.choices[0]?.message?.content || '',
+        usage: completion.usage
+      };
+    } else {
+      // Handle streaming response - not implemented for now
+      return {
+        content: '',
+        usage: undefined
+      };
+    }
   }
 
   private async processOllamaRequest(client: Ollama, request: LLMRequest, model: string) {
