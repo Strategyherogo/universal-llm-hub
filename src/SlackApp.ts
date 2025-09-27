@@ -14,8 +14,8 @@ import { AnalyticsService } from './services/AnalyticsService.js';
 import { LLMRequest, SlackCommand } from './types/index.js';
 
 export class SlackApp {
-  private app: App;
-  private expressReceiver: ExpressReceiver;
+  private app: any;
+  private expressReceiver: any;
   private logger: Logger;
   private llmManager: LLMProviderManager;
   private commandProcessor: CommandProcessor;
