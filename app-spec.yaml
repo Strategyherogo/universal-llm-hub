@@ -1,0 +1,40 @@
+name: universal-llm-hub
+region: nyc3
+
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: Strategyherogo/universal-llm-hub
+    branch: main
+    deploy_on_push: true
+  build_command: npm run build
+  run_command: npm start
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  http_port: 3000
+  environment_slug: node-js
+  envs:
+  - key: NODE_ENV
+    value: "production"
+  - key: SLACK_PORT
+    value: "3000"
+  - key: HEALTH_PORT
+    value: "3001"
+  - key: REDIS_HOST
+    value: "localhost"
+  - key: REDIS_PORT
+    value: "6379"
+  - key: LOG_LEVEL
+    value: "info"
+  health_check:
+    http_path: "/health"
+    initial_delay_seconds: 120
+    period_seconds: 30
+    timeout_seconds: 10
+    success_threshold: 1
+    failure_threshold: 3
+  routes:
+  - path: "/"
+
+
