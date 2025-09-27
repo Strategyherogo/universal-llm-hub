@@ -75,7 +75,7 @@ export class SlackApp {
           services: {
             slack: true,
             redis: await this.conversationManager?.isHealthy() || false,
-            providers: {}
+            providers: {} as Record<string, boolean>
           },
           metrics: {
             uptime: process.uptime(),
