@@ -132,7 +132,7 @@ export class LLMProviderManager {
     this.providerConfigs.set('groq', {
       name: 'Groq',
       type: 'groq',
-      models: ['llama-3.1-405b-reasoning', 'llama-3.1-70b-versatile', 'mixtral-8x7b-32768'],
+      models: ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'gemma2-9b-it'],
       pricing: {
         inputTokens: 0.0005,
         outputTokens: 0.0008

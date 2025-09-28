@@ -141,7 +141,7 @@ export class CommandProcessor {
     }
 
     const providers = ['openai', 'anthropic', 'groq'];
-    const models = ['gpt-4', 'claude-3-5-sonnet-20241022', 'llama-3.1-70b-versatile'];
+    const models = ['gpt-4', 'claude-3-5-sonnet-20241022', 'llama-3.3-70b-versatile'];
     const responses: any[] = [];
 
     const subscription = await this.userManager.getUserSubscription(userId, teamId);

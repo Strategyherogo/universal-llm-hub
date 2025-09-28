@@ -214,7 +214,7 @@ export class SlackApp {
     this.app.command('/ai-groq', async ({ command, ack, respond, client }) => {
       await ack();
       try {
-        await this.handleSlashCommand(command, respond, client, 'ask', 'groq', 'llama-3.1-70b-versatile');
+        await this.handleSlashCommand(command, respond, client, 'ask', 'groq', 'llama-3.1-8b-instant');
       } catch (error) {
         this.logger.error('Error handling /ai-groq command', { error, userId: command.user_id });
         await respond('Sorry, something went wrong. Please try again.');
